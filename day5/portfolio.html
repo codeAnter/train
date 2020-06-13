@@ -64,9 +64,24 @@
         .gallery {
             margin: 0 -8px;
         }
+        .gallery li {
+            padding: 4px 8px;   
+        }
 
-        .card {
-            padding: 4px 8px;
+        .card {                
+            border:1px solid#f5222d ;  
+            background-color: #ffccc7;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .card img {
+            height: 240px;
+            width:100%;
+        }
+        @media (min-width: 576px) {
+            .card img {
+                height: 320px;
+            }
         }
     </style>
 </head>
@@ -92,24 +107,64 @@
         <div class="container">
             <h2 class="section-title">喜欢的电影</h2>            
             <ul class="gallery row">
-                <li class="col-xs-12 col-md-6 card">
-                    <img  class="img-fluid" referrer="no-referrer" src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2604517782.jpg" alt="">
-                    <h4 class="text-center">春潮</h4>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img  class="img-fluid" referrer="no-referrer" src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2604517782.jpg" alt="">
+                        <h4 class="text-center">春潮</h4>
+                    </div>
+
                 </li>
-                <li class="col-xs-12 col-md-6 card">
-                    <img  class="img-fluid" src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2594916975.jpg" alt="">
-                    <h4 class="text-center">真心半解</h4>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img  class="img-fluid" src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2594916975.jpg" alt="">
+                        <h4 class="text-center">真心半解</h4>
+                    </div>
                 </li>
-                <li class="col-xs-12 col-md-6 card">
-                    <img  class="img-fluid" src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2570280248.jpg" alt="">
-                    <h4 class="text-center">鲁邦三世</h4>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img  class="img-fluid" src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2570280248.jpg" alt="">
+                        <h4 class="text-center">鲁邦三世</h4>
+                    </div>
+  
                 </li>
-                <li class="col-xs-12 col-md-6 card">
-                    <img class="img-fluid" src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2575357474.jpg" alt="">
-                    <h4 class="text-center">爱情人偶</h4>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img class="img-fluid" src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2575357474.jpg" alt="">
+                        <h4 class="text-center">爱情人偶</h4>
+                    </div>
+
                 </li>
             </ul>
         </div>        
+        <div class="container">
+            <h2 class="text-center">喜欢的书</h2>
+            <ul class="gallery row">
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img src="https://img3.doubanio.com/view/subject/s/public/s33619103.jpg" alt="">
+                        <h3 calss="text-center">永远不要说你老了</h3>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img src="https://img1.doubanio.com/view/subject/s/public/s33657908.jpg" alt="">
+                        <h3 class="text-center">长安客</h3>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img src="https://img1.doubanio.com/view/subject/s/public/s33630708.jpg" alt="">
+                        <h3 class="text-center">矮人星上的矮人</h3>
+                    </div>
+                </li>
+                <li class="col-xs-12 col-md-6">
+                    <div class="card">
+                        <img src="https://img3.doubanio.com/view/subject/s/public/s33640730.jpg" alt="">
+                        <h3 class="text-center">秋园</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </section>
     <footer>
         <div class="container row">
