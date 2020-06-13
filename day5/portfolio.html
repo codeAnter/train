@@ -27,16 +27,16 @@
         }
 
         .nav {
-            display:flex;
-            flex-direction: row;
+            height:0;
+            transition: height .5s;
+            flex-direction: column;
             justify-content: flex-end;
-            flex:1;
+            flex: 0 0 100%;
         }
 
         .nav ul {
             display:flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: column;
         }
         .nav ul>li {
             display: flex;
@@ -55,11 +55,19 @@
 
         footer {
             background-color:rgb(128,0,19);
-            min-height:400px;
+            min-height:300px;
+            padding: 32px 0;
         }
         footer .left {
             color:white;
-            padding: 32px;
+        }
+        footer .right img {
+            object-fit: contain;
+            
+        }
+        footer .copyright {
+            color: white;
+            text-align: center;
         }
         .gallery {
             margin: 0 -8px;
@@ -83,6 +91,27 @@
                 height: 320px;
             }
         }
+        .button-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+
+        @media (min-width: 768px) {
+            .button-wrapper {
+                display:none;
+            }
+            .nav {
+                display:flex;
+                flex-direction: row;
+                flex:1;
+            }
+            .nav ul {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
     </style>
 </head>
 
@@ -93,19 +122,24 @@
                     <img src="images/bird.png" alt="logo" class="icon">
                     <span>极客大叔的爱好</span>
                 </div>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="#">喜欢的电影</a></li>
-                        <li><a href="#">喜欢的书</a></li>
-                        <li><a href="#">聊一聊</a></li>
-                    </ul>
+                <div class="button-wrapper">
+                    <span class="button" id="menu-button" >
+                        <img src="images/list.svg" alt="" style="color:gray;">
+                    </span>
+                </div>
+                <nav class="nav menu-container" id="menu-container">      
+                        <ul class="menu" id="menu">
+                            <li><a href="#movie">喜欢的电影</a></li>
+                            <li><a href="#book">喜欢的书</a></li>
+                            <li><a href="#footer">聊一聊</a></li>
+                        </ul>           
                 </nav>
         </div>
 
     </header>
     <section>
         <div class="container">
-            <h2 class="section-title">喜欢的电影</h2>            
+            <h2 class="section-title" id="movie">喜欢的电影</h2>            
             <ul class="gallery row">
                 <li class="col-xs-12 col-md-6">
                     <div class="card">
@@ -137,7 +171,7 @@
             </ul>
         </div>        
         <div class="container">
-            <h2 class="text-center">喜欢的书</h2>
+            <h2 class="text-center" id="book">喜欢的书</h2>
             <ul class="gallery row">
                 <li class="col-xs-12 col-md-6">
                     <div class="card">
@@ -166,16 +200,35 @@
             </ul>
         </div>
     </section>
-    <footer>
-        <div class="container row">
-            <div class="col-18">
-                王小波说他是一只特立独行的猪，那我就是做一只特立独行的鸟吧。交个朋友吧，扫下右侧二维码。
-            </div>
-            <div class="col-6">
-
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-18 left">
+                    王小波说他是一只特立独行的猪，那我就是做一只特立独行的鸟吧。交个朋友吧，扫下右侧二维码。
+                </div>
+                <div class="col-sm-12 col-md-6 right ">
+                    <img src="images/qrcode.png"  alt="">
+                </div>
             </div>
         </div>
+        <hr>
+        <div class="container copyright">
+            版权所有 &copy; 极客大叔
+        </div>
     </footer>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $('#menu-button').click(function (){
+            //$('#menu-container').toggleClass('show');
+            var height =  $('#menu-container').height();
+            if (height) {
+                $('#menu-container').height(0);
+            } else {
+                $('#menu-container').height($('#menu').height());
+            }
+            console.log('height', $('#menu').height(), el.clientHeight);
+        })
+    </script>
 </body>
 
 </html>
