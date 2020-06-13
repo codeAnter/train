@@ -1,0 +1,82 @@
+/* normalize css */
+body {
+    margin:0;
+    padding:0;
+}
+ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+/* layout css */
+.container-fluid {
+    width: 92%;
+    padding: 0 4%;
+}
+
+.container {
+    box-sizing: border-box;
+    width:100%;
+    padding: 0 8px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+}
+@media (min-width:992px) {
+    .container {
+        max-width:992px;
+        padding:0 16px;
+    }
+}
+
+
+/* large desktop */
+@media (min-width:1200px) {
+    .container {
+        max-width: 1200px;
+        padding:0 16px;
+    }
+}
+
+.row {
+    display:flex;
+    flex-direction: row;
+}
+
+
+[class*="col-"] {
+    display:flex;
+    flex-direction: column;
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow:1;
+    max-width:100%;
+}
+
+.col-18 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.col-12 {
+    flex: 0 0 50%;
+    max-width:50%;
+}
+
+.col-8 {
+    flex: 0 0 33.333333%;
+    max-width:33.333333%; 
+}
+
+.col-6 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+
+.img-fluid {
+    max-width:100%;
+    height: auto;
+}

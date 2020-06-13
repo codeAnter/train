@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav</title>
+    <style>
+        body {
+            margin:0;
+        }
+        ul {
+            list-style-type: none;
+            margin:0;
+            padding:0;
+        }
+        .nav {
+
+        }
+        .nav>li {
+            width:100%;
+        }
+        .nav>li>a {
+            display: block;
+            width: 100%;
+            padding:8px;
+            background-color:rgb(241,241,241);
+            text-decoration: none;
+            color: #333;
+        }
+        .nav>li>a:hover {
+            background-color: rgba(116,116,116, 1);
+            color:white;
+        }
+        .nav>li>a.active {
+            background-color: rgb(99,188,112);
+            color:white;            
+        }
+        .nav>li>a.active:hover {
+            background-color: rgba(99,188,112, 0.8);
+
+        }
+        .nav2 {
+            background-color: rgb(51,51,51);
+        }
+        .nav2>li {
+            float:left;            
+        }
+        .nav2>li>a {
+            display:inline-block;
+            color:white;
+            padding: 12px;        
+            text-decoration: none;    
+        }
+        .nav2>li>a:hover {
+            color: #eee;
+            background-color: #111;
+        }
+        .nav2>li>a.active {
+            background-color: rgb(99,188,112);
+            color:white;            
+        }
+        .nav>li>a.active:hover {
+            background-color: rgba(99,188,112, 0.8);
+
+        }
+        .nav2>li.right {
+            float:right;
+        }
+        .dropdown {
+            position:relative;
+            display:inline-block;
+        }
+        .dropdown-content {
+            display:none;
+            background-color: white;
+            position: absolute;
+            color:black;
+            padding: 16px;
+            width: 200px;
+            box-shadow:  0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            text-decoration: none;;
+            display:inline-block;
+            padding: 8px;
+        }
+        .dropdown:hover .dropdown-content {
+            display:block;
+        }
+        .clear {
+            clear:both;
+        }
+        .tooltip {
+            display:inline-block;
+            position: relative;
+            margin-left:200px;
+        }
+        .tooltip-text {
+            display:none;
+            position: absolute;
+            z-index:1;
+            background-color:#222;
+            color:white;
+            border-radius: 8px;
+            left:50%;
+            bottom:105%;
+            margin-left:-60px;
+            width:120px;
+        }
+        .tooltip:hover .tooltip-text {
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <h2>垂直导航栏</h2>
+    <ul class="nav">
+        <li><a href="#" class="active">主页</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">联系</a></li>
+        <li><a href="#">关于</a></li>
+    </ul>
+    <h2>水平导航栏</h2>
+    <ul class="nav2">
+        <li><a href="#" class="active">主页</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">联系</a></li>
+        <li class="dropdown">
+                <a href="#" >关于</a>
+                <div class="dropdown-content">
+                    <ul>
+                        <li><a href="#">公司介绍</a></li>
+                        <li><a href="#">招聘职位</a></li>
+                        <li><a href="#">留言</a></li>
+                    </ul>
+                </div>
+        </li>
+        <div class="clear"></div>
+    </ul>
+    <h2>文本提示</h2>
+    <div class="tooltip">鼠标划到我这里
+        <div class="tooltip-text">提示文本</div>
+    </div>
+</body>
+</html>

@@ -50,16 +50,16 @@
             background-color:#ccc;
         }
         #left {
-            display:inline-block;
-            width: 20%;
+            float:left;
+            width: 200px;
             background-color: #ccc;
             vertical-align: top;
-            
+            position:sticky;
+            top:0px;
         }
         #right {
             background-color:white;
-            display:inline-block;
-            width:80%;
+            margin-left:200px;
             padding:8px;
             box-sizing: border-box;
         }
@@ -107,7 +107,8 @@
             </div><div id="right">
                 
                 <div class="center">
-                    <img src="images/cofffee-big.jpg" alt="Coffee Banner">
+                    <img src="images/cofffee-big.jpg" alt="Coffee Banner" style="display:block;float:left;clear:right;">
+                    <p>小店经营各种意式咖啡，手冲咖啡，以及零售咖啡豆</p>
                 </div>
                 <div class="center">
                 <table border="1" style="width:50%;margin-left:auto;margin-right:auto;">

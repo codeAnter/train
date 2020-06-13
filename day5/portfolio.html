@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <style>
+
+        header {
+            background-color:rgb(255,76,79);
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .header-title {
+            display:flex;
+            flex:1;
+            flex-direction: row;
+            align-items:center;
+            height:64px;
+        }
+
+        .nav {
+            display:flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            flex:1;
+        }
+
+        .nav ul {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .nav ul>li {
+            display: flex;
+            flex-direction: row;            
+        }
+
+        .nav ul>li>a {
+            display:inline-block;
+            padding:8px;
+            color:white;
+        }
+        .section-title {
+            text-align:center;
+        }
+        
+        .gallery {
+            justify-content: space-between;
+        }
+
+        footer {
+            background-color:rgb(128,0,19);
+            min-height:400px;
+        }
+        footer .left {
+            color:white;
+            padding: 32px;
+        }
+        .row {
+            display:flex;
+            flex-direction: row;
+        }        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container row">
+                <div class="header-title">
+                    <img src="images/bird.png" alt="logo" class="icon">
+                    <span>极客大叔的爱好</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#">喜欢的电影</a></li>
+                        <li><a href="#">喜欢的书</a></li>
+                        <li><a href="#">聊一聊</a></li>
+                    </ul>
+                </nav>
+        </div>
+
+    </header>
+    <section>
+        <div class="container col">
+            <h2 class="section-title">喜欢的电影</h2>
+            <ul class="container gallery row">
+                <li class="col">
+                    <img  class="img-fluid" referrer="no-referrer" src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2604517782.jpg" alt="">
+                    <h4>春潮</h4>
+                </li class="col">
+                <li class="col">
+                    <img  class="img-fluid" src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2594916975.jpg" alt="">
+                    <h4>真心半解</h4>
+                </li>
+                <li class="col">
+                    <img  class="img-fluid" src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2570280248.jpg" alt="">
+                    <h4>鲁邦三世</h4>
+                </li>
+                <li class="col">
+                    <img class="img-fluid" src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2575357474.jpg" alt="">
+                    <h4>爱情人偶</h4>
+                </li>
+            </ul>
+        </div>        
+    </section>
+    <footer>
+        <div class="container row">
+            <div class="col-18">
+                王小波说他是一只特立独行的猪，那我就是做一只特立独行的鸟吧。交个朋友吧，扫下右侧二维码。
+            </div>
+            <div class="col-6">
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
