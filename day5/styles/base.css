@@ -1,4 +1,4 @@
-/* normalize css */
+/* normalize css 重置样式 */
 body {
     margin:0;
     padding:0;
@@ -8,7 +8,7 @@ ul {
     margin:0;
     padding:0;
 }
-/* layout css */
+/* layout css 布局CSS */
 .container-fluid {
     width: 92%;
     padding: 0 4%;
@@ -26,6 +26,7 @@ ul {
     .container {
         max-width:992px;
         padding:0 16px;
+        margin:0 auto;
     }
 }
 
@@ -35,18 +36,27 @@ ul {
     .container {
         max-width: 1200px;
         padding:0 16px;
+        margin:0 auto;
     }
 }
 
+/* 栅格css */
 .row {
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
+
+.row-justify-center {
+    justify-content: center;
+}
+
 
 
 [class*="col-"] {
     display:flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .col {
@@ -55,6 +65,47 @@ ul {
     max-width:100%;
 }
 
+.col-xs-24 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.col-xs-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-md-4,.col-md-6,.col-md-12,.col-md-24 {
+    width:100%;    
+}
+
+/* sm */
+@media (min-width:576px) {
+    .col-sm-12 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* md */
+@media (min-width:768px) {
+    .col-md-6 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+/* lg */
+@media (min-width:992px) {
+
+}
+
+/* xl */
+@media (min-width:1200px) {
+
+}
+
+/* 所有屏幕 */
 .col-18 {
     flex: 0 0 75%;
     max-width: 75%;
@@ -75,6 +126,13 @@ ul {
     max-width: 25%;
 }
 
+
+
+
+/* typo css 基本排版(文字，图片） */
+.text-center {
+    text-align:center;
+}
 
 .img-fluid {
     max-width:100%;
