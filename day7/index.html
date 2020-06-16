@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器示示例</title>
+</head>
+<body>
+    <button id="btn1">-</button>
+    <span id="counter">0</span>
+    <button id="btn2">+</button>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+        function minus() {
+            var el = document.getElementById('counter');
+            if (el.innerHTML > 0) {
+                el.innerHTML--;
+            }
+        }
+
+
+        $(document).ready(function (){
+            console.log('inited');
+            $('#counter').html('323');
+            $('#btn1').click(minus);
+            $('#btn2').click(function (){
+                console.log("clicked");
+                $('#counter').html(Number($('#counter').text()) + 1);
+            });
+        });
+    </script>
+</body>
+</html>

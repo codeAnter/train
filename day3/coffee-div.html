@@ -54,7 +54,6 @@
             width: 200px;
             background-color: #ccc;
             vertical-align: top;
-            position:sticky;
             top:0px;
         }
         #right {
@@ -161,6 +160,18 @@
         </div>
         <div id="footer"><span>版权所有</span> &copy; <a href="https://www.baidu.com">小刘</a></div>
     </div>
- 
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        window.onscroll = function () {
+            var scroll = document.documentElement.scrollTop;
+            var offset = $('#header').height();
+            console.log(scroll, offset);
+            if (scroll > offset)  {
+                $('#left').css('position', 'fixed');
+            } else {
+                $('#left').css('position', 'static');
+            }
+        }
+    </script>
 </body>
 </html>

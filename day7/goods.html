@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品添加和删除</title>
+    <style>
+    #message {
+        color:red;
+    }
+    </style>
+</head>
+<body>
+    <h2>商品添加和删除</h2>
+    <div id="message"></div>
+    <ul id="goods">
+        <li>苹果</li>
+    </ul>
+    <button id="delbtn">删除所有商品</button>
+    <div>
+        <label for="name">名称</label>
+        <input type="text" id="name" name="name">
+        <button id="addbtn">添加</button>
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            function delme (){
+               var name = $(this).text();
+               $(this).remove();
+               $('#message').html('删除商品' +name);
+            }
+            $('#addbtn').click(function (){
+                console.log('add button clicked');
+                var name = $('#name').val();
+                if (name.length > 0) {
+                  $('#goods').append('<li>' + name + '</li>');
+                  $('#goods li').click(delme);
+                  $('#name').val('');
+                  $('#message').html("添加新商品:" +name);
+                }
+            });
+            $('#delbtn').click(function (){                
+                $('#goods li').remove();
+                $('#message').html('删除所有的商品')
+            });
+            $('#goods li').click(delme);
+        });
+    </script>
+</body>
+</html>

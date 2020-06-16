@@ -141,5 +141,14 @@
     <div class="tooltip">鼠标划到我这里
         <div class="tooltip-text">提示文本</div>
     </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('.nav2 li a').click(function (){
+                $('.nav2 li a').removeClass('active');
+                $(this).addClass('active');
+            })
+        });
+    </script>
 </body>
 </html>
