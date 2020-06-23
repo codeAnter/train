@@ -37,6 +37,8 @@ ReactDOM.render(
         </Welcome>
         <Welcome name="hanmei" />
         <Welcome name="yangyang" />
+        <div>            
+        </div>
     </App>,
     document.getElementById('container')
 );
