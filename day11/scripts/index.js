@@ -34,6 +34,7 @@ const NavItem = (props) => {
         <a className={linkClass} href={props.href || '#'}>{props.children}</a>
     </li>)
 }
+
 const  Nav = (props) => (
     <div class="nav flex-column">
         <NavItem href="#" active={false}>拿铁</NavItem>
@@ -41,6 +42,7 @@ const  Nav = (props) => (
         <NavItem disabled>卡布</NavItem>
     </div>
 )
+
 const Sidebar = (props) => (
     <div className="bg-dark text-primary">
         <Nav/>
