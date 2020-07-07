@@ -9,6 +9,20 @@ var Row = ReactBootstrap.Row
 var Col = ReactBootstrap.Col
 var Button = ReactBootstrap.Button
 
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    return null;
+    //console.log('Query variable %s not found', variable);
+}
+
+console.log('lanuage is : ' + getQueryVariable('language'))
 const Header = (props) => {
     const menuItems = [
         'All',
@@ -21,7 +35,7 @@ const Header = (props) => {
 
     return (<div>
         <Container>
-            <Nav className="justify-content-center" variant="pills" defaultActiveKey="All" onSelect={(selectedKey) => props.onClick(selectedKey)} >
+            <Nav className="justify-content-center" variant="pills" activeKey={props.activeKey || 'All' } onSelect={(selectedKey) => props.onClick(selectedKey)} >
                 {menuItems.map((item, key) => <Nav.Item key={key}><Nav.Link eventKey={item} >{item}</Nav.Link></Nav.Item>)}
             </Nav>
         </Container>
@@ -61,7 +75,7 @@ class App extends React.Component {
         ]
         this.state = { cards, loading: false, error: null, type: 'all', page: 1 }
     }
-    handleNavClick = async (type = 'all', page = 1) => {
+    handleNavClick = async (type = 'all', page = 1, pushState = true) => {
         const {cards} = this.state
         console.log('type', type)
         var url = ''
@@ -83,16 +97,21 @@ class App extends React.Component {
         }
         url = `${url}&page=${page}&per_page=10`
         try {
-            var beforeState = { type, loading: true, error: null }
+            var beforeState = { type, loading: true, error: null, lang: type }
             if (page === 1) {
                 beforeState.cards = []
             }
+            if (pushState) {
+                window.history.pushState('', '', `?language=${type}`)
+            }
+            //window.location.search = `?language=${type}`
             this.setState(beforeState)
-            const res = await axios.get(url, {
+            const res = await axios.get(url)
+            /* {
                 headers: {
                     'Authorization': 'token 23d18f1250269da629df6cdf1243c0203da72d04'
                 }
-            })
+            })*/
             console.log('res', res.data)
             const newCards = res.data.items.map((item, key) => ({
                 no: '#' + (page === 1 ? 1 + key : cards.length + 1 + key),
@@ -120,14 +139,27 @@ class App extends React.Component {
         const { type, page } = this.state
         this.handleNavClick(type, page + 1)
     }
+    handlePopState = (params) => {
+        const lang = getQueryVariable('language')   
+        this.handleNavClick(lang,this.state.page, false)     
+        console.log('lang', lang)
+        console.log('params', params)
+        
+    }
     componentDidMount() {
-        this.handleNavClick()
+        const lang = getQueryVariable('language')        
+        this.handleNavClick(lang)
+        //  this.setState({lang})
+        window.addEventListener('popstate', this.handlePopState)
+    }
+    componentWillUnmount () {
+        window.removeEventListener('popstate', this.handlePopState)
     }
     render() {
-        const { cards, loading, error } = this.state
+        const { cards, loading, error, lang } = this.state
         return (<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <div className="container">
-                <Header onClick={this.handleNavClick}>
+                <Header onClick={this.handleNavClick} activeKey={lang}>
                 </Header>
                 <Content>
 
