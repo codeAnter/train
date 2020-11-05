@@ -106,12 +106,12 @@ class App extends React.Component {
             }
             //window.location.search = `?language=${type}`
             this.setState(beforeState)
-            const res = await axios.get(url)
-            /* {
+            const res = await axios.get(url,
+             {
                 headers: {
-                    'Authorization': 'token 23d18f1250269da629df6cdf1243c0203da72d04'
+                    'Authorization': 'token 773f41a1572141a1d1107473d722bbe0d6e1e5f4'
                 }
-            })*/
+            })
             console.log('res', res.data)
             const newCards = res.data.items.map((item, key) => ({
                 no: '#' + (page === 1 ? 1 + key : cards.length + 1 + key),
