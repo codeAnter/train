@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 export default () => (
-  <div>
+  <Container>
     <Button>Click Me</Button>
-  </div>
+  </Container>
 );
