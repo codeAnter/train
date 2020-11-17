@@ -3,12 +3,13 @@ import axios from "axios";
 import "lazysizes";
 import "qs";
 import * as ReactBootstrap from "react-bootstrap";
+import RepoCard from "@/components/RepoCard";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const { Spinner } = ReactBootstrap;
 const { Alert } = ReactBootstrap;
 const { Container } = ReactBootstrap;
-const { Nav } = ReactBootstrap;
-const { Card } = ReactBootstrap;
 const { Row } = ReactBootstrap;
 const { Col } = ReactBootstrap;
 const { Button } = ReactBootstrap;
@@ -27,73 +28,11 @@ function getQueryVariable(variable) {
 }
 
 console.log(`lanuage is : ${getQueryVariable("language")}`);
-const Header = (props) => {
-  const menuItems = ["All", "Javascript", "Ruby", "Java", "Css", "Python"];
-
-  return (
-    <div>
-      <div>Have a test</div>
-      <Container>
-        <Nav
-          className="justify-content-center"
-          variant="pills"
-          activeKey={props.activeKey || "All"}
-          onSelect={(selectedKey) => props.onClick(selectedKey)}
-        >
-          {menuItems.map((item, key) => (
-            <Nav.Item key={key}>
-              <Nav.Link eventKey={item}>{item}</Nav.Link>
-            </Nav.Item>
-          ))}
-        </Nav>
-      </Container>
-    </div>
-  );
-};
 
 const Content = (props) => (
   <div>
     <Container>{props.children}</Container>
   </div>
-);
-
-const Footer = (props) => (
-  <div>
-    <Container>{props.children}</Container>
-  </div>
-);
-
-const RepoCard = ({ no, img, url, title, author, stars, forks, issues }) => (
-  <Card border="success" style={{ marginTop: "8px", marginBottom: "8px" }}>
-    <Card.Header className="text-center">{no}</Card.Header>
-    <Card.Body>
-      <Card.Img src="images/image.png" data-src={img} className="lazyload" />
-      <Card.Title className="text-center">
-        <Card.Link href={url} target="_blank">
-          {title}
-        </Card.Link>
-      </Card.Title>
-      <Card.Text>
-        <i className="fa fa-user fa-lg fa-fw" style={{ color: "orange" }} />
-        {author}
-      </Card.Text>
-      <Card.Text>
-        <i className="fa fa-star fa-lg fa-fw" style={{ color: "yellow" }} />
-        {stars}
-      </Card.Text>
-      <Card.Text>
-        <i
-          className="fa fa-code-fork fa-lg fa-fw"
-          style={{ color: "lightblue" }}
-        />
-        {forks}
-      </Card.Text>
-      <Card.Text>
-        <i className="fa fa-warning fa-lg fa-fw" style={{ color: "purple" }} />
-        {issues}
-      </Card.Text>
-    </Card.Body>
-  </Card>
 );
 
 export default class Popular extends React.Component {
@@ -201,6 +140,7 @@ export default class Popular extends React.Component {
 
   render() {
     const { cards, loading, error, lang } = this.state;
+
     return (
       <div
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
@@ -234,7 +174,6 @@ export default class Popular extends React.Component {
             </div>
             <div className="text-center">
               <Button onClick={this.loadMore} disabled={loading}>
-                {" "}
                 {loading && (
                   <Spinner
                     as="span"
@@ -244,7 +183,6 @@ export default class Popular extends React.Component {
                     aria-hidden="true"
                   />
                 )}
-                {" "}
                 加载更多
               </Button>
             </div>

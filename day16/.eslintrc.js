@@ -11,5 +11,9 @@ module.exports = {
         "react/no-array-index-key":0,
         "no-console": 0,
         "react/destructuring-assignment": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-unresolved": 0,
+        "react/jsx-no-bind":0,
+        "func-names": 0
     }
 }

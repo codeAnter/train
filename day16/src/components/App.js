@@ -1,22 +1,20 @@
+import { hot } from "react-hot-loader/root";
 import React from "react";
 import { Nav, Container } from "react-bootstrap";
-import axios from "axios";
 import Battle from "../pages/Battle";
 import Popular from "../pages/Popular";
+import BattleResult from "../pages/BattleResult";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: "Popular",
+      route: "Battle",
+      player1: "",
+      player2: "",
     };
-  }
-
-  async componentDidMount() {
-    const res = await axios.get("/api/store/categories");
-    console.log("res2", res);
   }
 
   handleMenu(key) {
@@ -26,16 +24,36 @@ export default class App extends React.Component {
     });
   }
 
+  handleBattleResult(player1, player2) {
+    this.handleMenu("BattleResult");
+
+    this.setState({
+      player1,
+      player2,
+    });
+  }
+
   render() {
     const menuItems = ["Popular", "Battle"];
-    const { route } = this.state;
+    const { route, player1, player2 } = this.state;
     let page = null;
     switch (route) {
       case "Battle":
-        page = <Battle />;
+        page = (
+          <Battle enterBattleResult={this.handleBattleResult.bind(this)} />
+        );
         break;
       case "Popular":
         page = <Popular />;
+        break;
+      case "BattleResult":
+        page = (
+          <BattleResult
+            player1={player1}
+            player2={player2}
+            onReset={() => this.handleMenu("Battle")}
+          />
+        );
         break;
       default:
         page = <Popular />;
@@ -57,3 +75,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default hot(App);
